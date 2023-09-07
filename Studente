@@ -1,0 +1,28 @@
+class Studente:
+    prima_matr_libera = 1
+    
+    def __init__(self, nome, cognome, corso):
+        self.nome = nome
+        self.cognome = cognome
+        self.matricola = Studente.prima_matr_libera
+        Studente.prima_matr_libera += 1
+        self.corso = corso
+        self.anno = 1
+        self.fuori_corso = False
+    
+    def passa_anno(self):
+        if self.anno==self.corso.durata and not self.fuori_corso:
+            self.anno = 1
+            self.fuori_corso = True
+        else:
+            self.anno += 1
+        return self #serve solo per i test
+    
+    def __str__(self):
+        res = self.nome+" "+self.cognome+" "
+        res += "(matr. "+str(self.matricola)+"). "
+        res += "Iscritto al "+str(self.anno)+" anno "
+        if self.fuori_corso:
+            res += "fuori corso "
+        res += "di "+self.corso.nome
+        return res
