@@ -1,0 +1,25 @@
+class Studente_atleta(Studente):
+    
+    
+    def __init__(self, nome, cognome, corso, sport):
+        super().__init__(nome, cognome, corso)
+        self.sport = sport
+    
+    def passa_anno(self):
+        if self.anno==4 and not self.fuori_corso:
+            self.anno = 1
+            self.fuori_corso = True
+        else:
+            self.anno += 1
+        return self
+    
+    def __str__(self):
+        res = self.nome+" "+self.cognome+" "
+        res += "(matr. "+str(self.matricola)+"). "
+        res += "Iscritto al "+str(self.anno)+" anno "
+        if self.fuori_corso:
+            res += "fuori corso "
+        res += "di "+self.corso.nome
+        res +=". Atleta: "+str(self.sport)
+        return res
+        
