@@ -1,0 +1,6 @@
+class Corso_di_laurea:
+    def __init__(self, nome, crediti, scuola, durata):
+        self.nome = nome
+        self.crediti = crediti
+        self.scuola = scuola
+        self.durata = durata
